@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<form method="POST">
+  <h3 align="center">Sign Up</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      name="firstName"
+      placeholder="Enter first name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      name="lastName"
+      placeholder="Enter last name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Enter password"
+      onchange   = "checkPasswordRequirements(event);"
+      onkeypress = "this.onchange(event);"
+      onpaste    = "this.onchange(event);"
+      oninput    = "this.onchange(event);"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password2">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Confirm password"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password-requirements">Password Requirements:</label>
+    <div id="password-requirements">
+      <label><input disabled type="checkbox" id="length-requirement"> Must be 12 characters long</label><br>
+      <label><input disabled type="checkbox" id="length-requirement1"> Must be shorter than 21 characters</label><br>
+      <label><input disabled type="checkbox" id="uppercase-requirement"> Must contain at least 1 uppercase letter</label><br>
+      <label><input disabled type="checkbox" id="lowercase-requirement"> Must contain at least 1 lowercase letter</label><br>
+      <label> Must contain at least 1 special character (i.e. any character that is not a letter or a number)</label>
+    </div>
+  </div>  
+  <div class="form-group">
+    <label>CAPTCHA:</label>
+    <div class="g-recaptcha" data-sitekey="6LfbT1YjAAAAAINxPIbIxUCBWSwn9pFtfZcQBF4h"></div>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ 
+ function checkPasswordRequirements(event) {
+const password = event.originalTarget.value;
+const lengthRequirementCheckbox = document.getElementById('length-requirement');
+if (password.length >= 12) {
+  lengthRequirementCheckbox.checked = true;
+} else {
+  lengthRequirementCheckbox.checked = false;
+}
+
+const lengthRequirement1Checkbox = document.getElementById('length-requirement1');
+if (password.length <= 21) {
+  lengthRequirement1Checkbox.checked = true;
+} else {
+  lengthRequirement1Checkbox.checked = false;
+}
+
+const uppercaseRequirementCheckbox = document.getElementById('uppercase-requirement');
+if (/[A-Z]/.test(password)) {
+  uppercaseRequirementCheckbox.checked = true;
+} else {
+  uppercaseRequirementCheckbox.checked = false;
+}
+
+
+const lowercaseRequirementCheckbox = document.getElementById('lowercase-requirement');
+if (/[a-z]/.test(password)) {
+  lowercaseRequirementCheckbox.checked = true;
+} else {
+  lowercaseRequirementCheckbox.checked = false;
+}
+
+
+const specialCharacterRequirementCheckbox = document.getElementById('special-character-requirement');
+if (/[\W]/.test(password)) {
+  specialCharacterRequrementCheckbox.checked = true;
+} else {
+specialCharacterRequirementCheckbox.checked = false;
+}
+}
+</script>
+
+{% endblock %}
+
+
+
+  
