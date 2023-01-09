@@ -4,7 +4,7 @@ This repository is the final assignment of the HCI/Usable Security class from th
 
 ## Description 
 
-Creating a website(non-live) that contains a GUI that allows the user to create an account, stores the account information in a database, and add password requirements to strengthen the password.
+Creating a website(non-live) that contains a GUI that allows the user to create an account, stores the account information in a database, and add password requirements to strengthen the password. 
 
 ## Requirements 
 
@@ -15,4 +15,8 @@ Creating a website(non-live) that contains a GUI that allows the user to create 
 ## Building on Visual Studio Code
 
 For this project I used version 1.73.1
+
+## Sources
+
+
 
